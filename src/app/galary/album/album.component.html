@@ -1,0 +1,15 @@
+<!-- <div class="gallery__page">
+    <div class="gallery__warp">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mt-2" *ngFor="let photo of photos">
+          <a class="gallery__item fresco" href="{{ photo.src }}" data-fresco-group="gallery">
+            <img src="{{ photo.src }}" alt="{{ photo.alt }}" class="img-fluid">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+<div class="text-center">
+       <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+</div>
