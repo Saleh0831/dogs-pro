@@ -1,113 +1,20 @@
-<!-- Blog Page -->
-<section class="blog__page">
-    <div class="blog__warp">
-        <div class="row blog__grid text-white">
-            <div class="col-lg-8 col-xl-9">
-                <div class="row">
-                    <div class="col-md-8 col-lg-7 col-xl-8">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog/4.jpg)'">
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h3><a href="./blog-single.html">9 Reasons to Buy a 50mm Prime Lens & Skip the Kit
-                                        Lens</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-5 col-xl-4">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog/1.jpg)'"
-                            >
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h4><a href="./blog-single.html">Assorted Textures FREE Stock Photos</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-5 col-xl-4">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog/5.jpg)'"
-                        >
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h4><a href="./blog-single.html">Assorted Textures FREE Stock Photos</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-lg-7 col-xl-8">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog/2.jpg)'"
-                            >
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h3><a href="./blog-single.html">Improve Your Portrait Photography with These Helpful
-                                        Tips</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3">
-                <div class="blog__item blog__item--long set-bg" [style.background-image]="'url(/assets/img/blog/3.jpg)'">
-                    <div class="blog__content">
-                        <div class="blog__date">DEC 18, 2019</div>
-                        <h4><a href="./blog-single.html">Assorted Textures FREE Stock Photos</a></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
+ <h1 dir="rtl" class="d-flex justify-content-center mt-5 mb-5" >خواهش میخوانم میان نژاد سگ ها جستجو کنید</h1>
+ 
+ <div class="dropdown d-flex justify-content-center mt-5">
+    <button class="btn btn-secondary dropdown-toggle" (click)="showsMenu()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        جستجو و دریافت با توجه به نژاد
+    </button>
+    <div class="dropdown-menu mt-5" [ngClass]="shows ? 'show':''" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
+      <a *ngFor="let item of allDogs" class="dropdown-item" (click)="data($event)">{{item}}</a>
     </div>
-</section>
-<!-- Blog Page end -->
-<!-- <section class="blog__page">
-    <div class="blog__warp">
-        <div class="row blog__grid text-white">
-            <div class="col-lg-8 col-xl-9">
-                <div class="row">
-                    <div class="col-md-8 col-lg-7 col-xl-8">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog-1.jpg)'">
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h3><a href="./blog-single.html">9 Reasons to Buy a 50mm Prime Lens & Skip the Kit
-                                        Lens</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-5 col-xl-4">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog-1.jpg)'"
-                            [attr.data-setbg]="'assets/img/blog/2.jpg'">
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h4><a href="./blog-single.html">Assorted Textures FREE Stock Photos</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-5 col-xl-4">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog-1.jpg)'"
-                            [attr.data-setbg]="'assets/img/blog/4.jpg'">
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h4><a href="./blog-single.html">Assorted Textures FREE Stock Photos</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-lg-7 col-xl-8">
-                        <div class="blog__item set-bg" [style.background-image]="'url(/assets/img/blog-1.jpg)'"
-                            [attr.data-setbg]="'assets/img/blog/5.jpg'">
-                            <div class="blog__content">
-                                <div class="blog__date">DEC 18, 2019</div>
-                                <h3><a href>"./blog-single.html">Improve Your Portrait Photography with These Helpful
-                                        Tips</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3">
-                <div class="blog__item blog__item--long set-bg" [style.background-image]="'url(/assets/img/blog-1.jpg)'"
-                    [attr.data-setbg]="'assets/img/blog/3.jpg'">
-                    <div class="blog__content">
-                        <div class="blog__date">DEC 18, 2019</div>
-                        <h4><a href="./blog-single.html">Assorted Textures FREE Stock Photos</a></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+  </div>
+
+  <h2 class="m-b-5" *ngIf="immges">البوم عکس</h2>
+  <br>
+  <div class="d-flex flex-wrap flex-direction-center  justify-content-center">
+  <app-thems *ngFor="let item of immges" [image]="item"></app-thems>
+  </div>
+
+  <div class="" style="height: 50vw;"></div>
+

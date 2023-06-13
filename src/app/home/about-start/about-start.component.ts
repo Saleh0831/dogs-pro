@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { WikiService } from 'src/app/services/wiki.service';
 
 @Component({
@@ -6,7 +7,9 @@ import { WikiService } from 'src/app/services/wiki.service';
   templateUrl: './about-start.component.html',
   styleUrls: ['./about-start.component.scss']
 })
-export class AboutStartComponent implements OnInit {
+export class AboutStartComponent implements OnInit, OnDestroy {
+  private subscription1!: Subscription;
+  private subscription2!: Subscription;
 
   dataIndexDog: any;
   dataIndexWolf: any;
@@ -21,23 +24,27 @@ export class AboutStartComponent implements OnInit {
   }
 
   constructor(private wikiService: WikiService) { }
+  ngOnDestroy(): void {
+    this.subscription1.unsubscribe();
+    this.subscription2.unsubscribe();
+  }
   ngOnInit(): void {
-    this.wikiService.searchWikiPersion('گرگ').subscribe((res: any) => {
-      
-      
+    this.subscription1 = this.wikiService.searchWikiPersion('گرگ').subscribe((res: any) => {
+
+
       let secondDotIndex = res.query.pages[14920].extract.indexOf(".", res.query.pages[14920].extract.indexOf(".") + 1);
       secondDotIndex = res.query.pages[14920].extract.indexOf(".", secondDotIndex + 1);
       let displayData = res.query.pages[14920].extract.slice(0, secondDotIndex)
-      console.log(displayData);
+
       this.dataIndexWolf = displayData
-      console.log(this.dataIndexWolf);
-      
+
+
     });
-    this.wikiService.searchWikiPersion('سگ').subscribe((res: any) => {
+    this.subscription2 = this.wikiService.searchWikiPersion('سگ').subscribe((res: any) => {
       let secondDotIndex = res.query.pages[15178].extract.indexOf(".", res.query.pages[15178].extract.indexOf(".") + 1);
       secondDotIndex = res.query.pages[15178].extract.indexOf(".", secondDotIndex + 1);
       let displayData = res.query.pages[15178].extract.slice(0, secondDotIndex)
-      
+
       this.dataIndexDog = displayData;
     });
   }

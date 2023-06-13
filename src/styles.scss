@@ -28,3 +28,15 @@ $border-radius: false;
 $link-decoration: none;
 
 @import "bootstrap/scss/bootstrap";
+
+.searchmatch{
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'myCustomFont';
+    src: url(./assets/font/Vazirmatn-Regular.ttf) format('ttf');
+}
+
+body {
+    font-family: 'myCustomFont',Arial, Helvetica, sans-serif;
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
 import { DogsService } from 'src/app/services/dogs.service';
 
 @Component({
@@ -7,12 +8,17 @@ import { DogsService } from 'src/app/services/dogs.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit,OnDestroy  {
+  private subscription!: Subscription;
+
   imageDogApi:[]=[];
   constructor(private dogsService:DogsService){ }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {
-    this.dogsService.getTenDogEmageRandom().subscribe((data:any)=>{
+    this.subscription = this.dogsService.getTenDogEmageRandom(10).subscribe((data:any)=>{
 this.imageDogApi=data.message
     })
   }

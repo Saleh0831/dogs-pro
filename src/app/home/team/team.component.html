@@ -9,11 +9,11 @@
         
       
         
-        <ng-template carouselSlide *ngFor="let member of teamMembers">
+        <ng-template carouselSlide *ngFor="let member of data">
           <div class="pb-5 position-relative">
             <div class="team-item">
               <div class="position-relative overflow-hidden">
-                  <img class="img-fluid w-100" [src]="member.image" alt="">
+                  <img class="img-fluid w-100" style="height: 20rem;" [src]="member" alt="">
                   <div class="team-overlay">
                       <div class="d-flex align-items-center justify-content-start">
                           <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>

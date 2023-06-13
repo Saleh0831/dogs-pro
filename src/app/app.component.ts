@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { WikiService } from './services/wiki.service';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthenticonService } from './services/authenticon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,18 @@ import { WikiService } from './services/wiki.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  cookieValue:any;
+  constructor(private cookieService: CookieService,private authService:AuthenticonService,private router:Router){
+    this.cookieValue = this.cookieService.get('esohp-cookie');
+  }
   ngOnInit(): void {
+    if(this.cookieValue){
+      this.authService.setCurrentUser(true);
+    }
+
+    
+    
+    
     
   }
 /*   carouselOptions: OwlOptions = {

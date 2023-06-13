@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
+import { DogsService } from 'src/app/services/dogs.service';
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss']
 })
-export class TeamComponent {
+export class TeamComponent implements OnInit,OnDestroy  {
+  private subscription!: Subscription;
+
+  data: [] = []
+  constructor(private dogTenService: DogsService) { }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+  ngOnInit(): void {
+   this.subscription = this.dogTenService.getTenDogEmageRandom(10).subscribe((res: any) => {
+      this.data = res.message;
+      
+      
+    })
+  }
   carouselOptions: OwlOptions = {
     loop: true,
     nav: true,

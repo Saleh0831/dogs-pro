@@ -19,6 +19,13 @@ import { AlbumComponent } from './galary/album/album.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { BlogerComponent } from './blog/bloger/bloger.component';
 import { HttpClientModule } from "@angular/common/http";
+import { NgxLoadingModule } from "ngx-loading";
+import { ThemsComponent } from './galary/thems/thems.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SigupComponent } from './authentication/sigup/sigup.component';
+import { SiginComponent } from './authentication/sigin/sigin.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +40,10 @@ import { HttpClientModule } from "@angular/common/http";
     TeamComponent,
     HouseComponent,
     AlbumComponent,
-    BlogerComponent
+    BlogerComponent,
+    ThemsComponent,
+    SigupComponent,
+    SiginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,9 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     CarouselModule,
     NgxGalleryModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
